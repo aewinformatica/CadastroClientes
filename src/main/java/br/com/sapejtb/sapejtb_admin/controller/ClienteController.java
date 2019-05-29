@@ -33,6 +33,7 @@ public class ClienteController {
 		//temporario ate fazer o filtro de busca
 			@Autowired
 			private Clientes clientes;
+				
 	
 		@RequestMapping(value = "/novo")
 		public ModelAndView novo(Cliente cliente){
@@ -59,7 +60,7 @@ public class ClienteController {
 			
 			List<Cliente>listaClientes = clientes.findAll();
 			mv.addObject("todosclientes",listaClientes);
-
+			
 			return mv;
 		}
 	

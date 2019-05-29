@@ -4,6 +4,8 @@ import static java.nio.file.FileSystems.getDefault;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -16,7 +18,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
-import org.springframework.util.ResourceUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import br.com.sapejtb.sapejtb_admin.storage.FotoStorage;
@@ -28,6 +29,8 @@ import net.coobird.thumbnailator.name.Rename;
 @Component
 public class FotoStorageLocal implements FotoStorage {
 	
+	
+	
 	private static final Logger logger = LoggerFactory.getLogger(FotoStorageLocal.class);
 	private static final String THUMBNAIL_PREFIX = "thumbnail.";
 
@@ -38,8 +41,14 @@ public class FotoStorageLocal implements FotoStorage {
 
 	
 	
-	@Value("${sistema.foto-storage-local.url-base}")
+//	@Value("${sistema.foto-storage-local.url-base}")
 	private String urlBase;
+	
+	@Value("${server.port}")
+	private String port;
+	
+
+
 	
 	
 	@Override
@@ -91,6 +100,15 @@ public class FotoStorageLocal implements FotoStorage {
 	
 	@Override
 	public String getUrl(String foto) {
+		try {
+
+			urlBase  = "http://" + InetAddress.getLocalHost().getHostAddress() +":"+ port+"/fotos/";
+			System.out.println(urlBase.toString());
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		return urlBase + foto;
 	}
 
