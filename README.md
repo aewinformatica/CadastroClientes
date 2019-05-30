@@ -16,3 +16,4 @@ IP DO SERVIDOR Exemplo para ser usado no S3Ninja /Producão em Teste kkkkkkkkkkk
 
 IP LOCAL E PORTA VIA METODO
 FOTOS NO MESMO DIR QUE A APLICAÇÃO
+* INCLUSÃO DO FILESTORAGE
