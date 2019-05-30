@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 public class DashboardController {
 	
-	@GetMapping("/")
+	@GetMapping("/dash")
 	ModelAndView home(){
 		ModelAndView mv = new ModelAndView("Dashboard");
 		
