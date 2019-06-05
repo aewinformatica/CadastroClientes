@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.async.DeferredResult;
 import org.springframework.web.multipart.MultipartFile;
 
-import br.com.sapejtb.sapejtb_admin.dto.FileDTO;
+import br.com.sapejtb.sapejtb_admin.dto.ArquivoDTO;
 import br.com.sapejtb.sapejtb_admin.storage.FileStorage;
 import br.com.sapejtb.sapejtb_admin.storage.FileStorageRunnable;
 
@@ -24,8 +24,8 @@ public class FilesController {
 	private FileStorage fileStorage;
 	
 	@PostMapping
-	public DeferredResult<FileDTO> upload(@RequestParam("files[]") MultipartFile[] files) {
-		DeferredResult<FileDTO> resultado = new DeferredResult<>();
+	public DeferredResult<ArquivoDTO> upload(@RequestParam("files[]") MultipartFile[] files) {
+		DeferredResult<ArquivoDTO> resultado = new DeferredResult<>();
 
 		Thread thread = new Thread(new FileStorageRunnable(files, resultado, fileStorage));
 		thread.start();

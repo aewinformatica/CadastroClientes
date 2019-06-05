@@ -70,6 +70,10 @@
 									data:objeto="${cliente.nome}">
 								<i class="glyphicon glyphicon-remove"></i>
 							</a>
+							<a class="btn  btn-link  btn-xs  js-tooltip" title="Arquivos" 
+									th:href="@{/clientes/{codigo}/arquivos(codigo=${cliente.codigo})}"> 
+								<i class="glyphicon glyphicon-folder-close"></i>
+							</a>
 						</td>
 						
 					</tr>

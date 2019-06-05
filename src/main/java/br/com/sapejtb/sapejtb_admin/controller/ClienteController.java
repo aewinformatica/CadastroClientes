@@ -80,4 +80,11 @@ public class ClienteController {
 		mv.addObject(cliente);
 		return mv;
 	}
+	
+	@GetMapping("/{codigo}/arquivos")
+	public ModelAndView arquivos(@PathVariable("codigo") Cliente cliente) {
+		ModelAndView mv =  new ModelAndView("cliente/Upload");
+		mv.addObject(cliente);
+		return mv;
+	}
 }
