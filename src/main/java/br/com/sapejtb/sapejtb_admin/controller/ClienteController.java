@@ -19,7 +19,9 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.sapejtb.sapejtb_admin.model.Cliente;
+import br.com.sapejtb.sapejtb_admin.model.Foto;
 import br.com.sapejtb.sapejtb_admin.repository.Clientes;
+import br.com.sapejtb.sapejtb_admin.repository.Fotos;
 import br.com.sapejtb.sapejtb_admin.service.CadastroClienteService;
 import br.com.sapejtb.sapejtb_admin.service.exception.ImpossivelExcluirEntidadeException;
 
@@ -33,7 +35,9 @@ public class ClienteController {
 		//temporario ate fazer o filtro de busca
 			@Autowired
 			private Clientes clientes;
-				
+			
+			@Autowired
+			private Fotos fotos;
 	
 		@RequestMapping(value = "/novo")
 		public ModelAndView novo(Cliente cliente){
@@ -60,6 +64,9 @@ public class ClienteController {
 			
 			List<Cliente>listaClientes = clientes.findAll();
 			mv.addObject("todosclientes",listaClientes);
+			
+			List<Foto>listaFotos = fotos.findAll();
+			mv.addObject("todasfotos",listaFotos);
 			
 			return mv;
 		}

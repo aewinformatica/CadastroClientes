@@ -3,22 +3,17 @@ package br.com.sapejtb.sapejtb_admin.repository.listener;
 import javax.persistence.PostLoad;
 
 import br.com.sapejtb.sapejtb_admin.CadastroClientesApplication;
-import br.com.sapejtb.sapejtb_admin.model.Cliente;
+import br.com.sapejtb.sapejtb_admin.model.Foto;
 import br.com.sapejtb.sapejtb_admin.storage.FotoStorage;
 
-public class ClienteEntityListener {
+public class FotoEntityListener {
 
+	
 	@PostLoad
-	public void postLoad(final Cliente cliente) {
+	public void postLoadtwo(final Foto foto) {
 		FotoStorage fotoStorage = CadastroClientesApplication.getBean(FotoStorage.class);
 		
-		cliente.setUrlFoto(fotoStorage.getUrl(cliente.getFotoOuMock()));
-		cliente.setUrlThumbnailFoto(fotoStorage.getUrl(FotoStorage.THUMBNAIL_PREFIX + cliente.getFotoOuMock()));
-		
-
-
+		foto.setUrlFoto(fotoStorage.getUrl(foto.getFotoOuMock()));
+		foto.setUrlThumbnailFoto(fotoStorage.getUrl(FotoStorage.THUMBNAIL_PREFIX + foto.getFotoOuMock()));
 	}
-	
-
-	
 }

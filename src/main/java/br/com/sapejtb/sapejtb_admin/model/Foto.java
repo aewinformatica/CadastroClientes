@@ -2,6 +2,7 @@ package br.com.sapejtb.sapejtb_admin.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,6 +13,9 @@ import javax.persistence.Transient;
 
 import org.springframework.util.StringUtils;
 
+import br.com.sapejtb.sapejtb_admin.repository.listener.FotoEntityListener;
+
+@EntityListeners(FotoEntityListener.class)
 @Entity
 @Table(name="cliente_foto")
 public class Foto {

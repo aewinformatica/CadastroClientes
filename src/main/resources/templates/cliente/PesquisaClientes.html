@@ -82,6 +82,23 @@
 			</table>
 		</div>
 		
+		<div class="table-responsive  bw-tabela-simples">
+		<table class="table  table-hover">
+		<thead>
+		<tr>
+			<th class="text-center">FOTO</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr th:each="foto : ${todasfotos}">
+			<td class="text-center">
+			<img th:src="${foto.urlThumbnailFoto}" class="img-responsive"/>
+			<td>
+		</tr>
+		</tbody>
+		</table>
+		</div>
+		
 		
 	</div>
 
